@@ -1,0 +1,160 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="1"
+        android:id="@+id/activity_mainLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Your position:"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.08" />
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/txt_x_pos"
+            android:layout_gravity="center_horizontal"
+            android:text="X POS"
+            android:height="20dp"
+            android:width="250dp"
+            android:visibility="visible"
+            android:textAlignment="center"
+            android:minWidth="250dp"
+            android:maxWidth="250dp"
+            android:enabled="true"
+            android:capitalize="characters"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:elegantTextHeight="true"
+            android:editable="false"
+            android:background="@color/dim_foreground_material_dark" />
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/txt_y_pos"
+            android:layout_gravity="center_horizontal"
+            android:text="Y POS"
+            android:width="250dp"
+            android:height="20dp"
+            android:visibility="visible"
+            android:textAlignment="center"
+            android:minWidth="250dp"
+            android:maxWidth="250dp"
+            android:enabled="true"
+            android:capitalize="characters"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:background="@color/dim_foreground_material_dark" />
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/txt_address"
+            android:layout_gravity="center_horizontal"
+            android:text="Address"
+            android:width="250dp"
+            android:height="20dp"
+            android:visibility="visible"
+            android:textAlignment="center"
+            android:minWidth="250dp"
+            android:maxWidth="250dp"
+            android:enabled="true"
+            android:capitalize="characters"
+            android:layout_row="4"
+            android:layout_column="0"
+            android:background="@color/dim_foreground_material_dark" />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="Locate me!"
+            android:id="@+id/locate_me"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="Show on map"
+            android:id="@+id/button_show_map"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.39" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Navigation:"
+            android:id="@+id/textView2"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.08" />
+
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/txt_to_address"
+            android:layout_gravity="center_horizontal"
+            android:text="To Address"
+            android:width="250dp"
+            android:height="20dp"
+            android:visibility="visible"
+            android:textAlignment="center"
+            android:minWidth="250dp"
+            android:maxWidth="250dp"
+            android:enabled="true"
+            android:capitalize="characters"
+            android:layout_row="4"
+            android:layout_column="0"
+            android:layout_weight="0.08"
+            android:editable="true"
+            android:background="@color/dim_foreground_material_dark"
+            android:clickable="true" />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:text="Route me there!"
+            android:id="@+id/button_route_me"
+            android:layout_gravity="center_horizontal"
+            android:clickable="true"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0.08" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
