@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">wi13b154LocatorApp</string>
-
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">MOC_MapLocator</string>
+    <string name="title_activity_maps">MOC_MapLocator</string>
 </resources>
