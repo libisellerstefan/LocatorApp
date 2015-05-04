@@ -4,6 +4,8 @@ import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -121,6 +123,12 @@ public class MapsActivity extends FragmentActivity implements
         double currentLatitude = location.getLatitude();
         double currentLongitude = location.getLongitude();
         LatLng latLng = new LatLng(currentLatitude, currentLongitude);
+
+        //write to fields
+        TextView txtLat = (TextView)findViewById(R.id.txtLat);
+        TextView txtLon = (TextView)findViewById(R.id.txtLon);
+        txtLat.setText("Latitude:  "+Double.toString(currentLatitude));
+        txtLon.setText("Longitude: "+Double.toString(currentLongitude));
 
         //create new marker
 

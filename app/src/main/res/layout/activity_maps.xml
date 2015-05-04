@@ -1,4 +1,41 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:id="@+id/map" tools:context=".MapsActivity"
-    android:name="com.google.android.gms.maps.SupportMapFragment" />
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_height="fill_parent"
+    android:layout_width="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+                android:layout_height="0dp" android:id="@+id/map" tools:context=".MapsActivity"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_weight="50" />
+
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="20px" />
+
+    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:ems="10"
+                        android:id="@+id/txtLat"
+                        android:textIsSelectable="true"
+                        android:layout_gravity="center_vertical|bottom" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="20dp"
+                        android:ems="10"
+                        android:id="@+id/txtLon"
+                        android:layout_gravity="bottom" />
+
+    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:text="@string/buttontext_navme"
+                        android:id="@+id/startNav"
+        android:layout_gravity="center_vertical|bottom" />
+
+</LinearLayout>
+

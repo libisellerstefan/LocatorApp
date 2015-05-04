@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MOC_MapLocator</string>
     <string name="title_activity_maps">MOC_MapLocator</string>
+    <string name="buttontext_navme">Start navigation</string>
 </resources>
