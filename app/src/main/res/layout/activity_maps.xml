@@ -35,6 +35,7 @@
                         android:layout_height="60dp"
                         android:text="@string/buttontext_navme"
                         android:id="@+id/startNav"
+                        android:onClick="sendMessage"
         android:layout_gravity="center_vertical|bottom" />
 
 </LinearLayout>

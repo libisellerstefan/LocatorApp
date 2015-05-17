@@ -1,9 +1,11 @@
 package com.solution_driven.moc_maplocator;
 
+import android.content.Intent;
 import android.location.Location;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -12,10 +14,12 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -137,11 +141,11 @@ public class MapsActivity extends FragmentActivity implements
     //    if (mkr != null)          mkr.remove();
 
         mMap.clear();
+
         mkr = mMap.addMarker(options);
 
 
-        //center map on marker
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        zoomAndCenter(latLng);
     }
 
     @Override
@@ -175,5 +179,29 @@ public class MapsActivity extends FragmentActivity implements
     @Override
     public void onLocationChanged(Location location) {
         handleNewLocation(location);
+
+    }
+
+    public void zoomAndCenter(LatLng latLng ){
+
+        //center map on marker
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+
+
+        //zoom in
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+
+        /****
+        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+        builder.include(latLng);
+        LatLngBounds bounds = builder.build();
+        mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 20));
+        */
+    }
+
+    public void sendMessage(View view)
+    {
+        Intent intent = new Intent(this, SelectPois.class);
+        startActivity(intent);
     }
 }
