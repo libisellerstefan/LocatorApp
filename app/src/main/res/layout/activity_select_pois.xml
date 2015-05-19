@@ -26,7 +26,8 @@
         android:layout_above="@+id/button"
         android:layout_alignParentStart="true">
 
-        <ListView android:id="@android:id/list"
+        <ListView
+            android:id="@android:id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             />
