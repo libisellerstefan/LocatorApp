@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">MOC MapLocator</string>
     <string name="title_activity_maps">MOC_MapLocator</string>
-    <string name="buttontext_navme">Select POI</string>
-    <string name="title_activity_select_pois">Select POI</string>
+    <string name="buttontext_navme">Get POI</string>
+    <string name="title_activity_select_pois">Get POI</string>
 
 
     <string name="action_settings">Settings</string>

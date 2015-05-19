@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -42,7 +43,7 @@ import java.util.List;
             super.onPreExecute();
 
             //Info msg for user
-            Toast.makeText(SelectPois.thisWindow, "Download starting..", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MapsActivity.thisWindow, "Download starting..", Toast.LENGTH_SHORT).show();
 
         }
 
@@ -68,13 +69,18 @@ import java.util.List;
 
                     JSONObject json_feature = features.getJSONObject(i);
                     String name = json_feature.getJSONObject("properties").getString("NAME");
-                    String lon = json_feature.getJSONObject("geometry").getJSONArray("coordinates").getString(0);
-                    String lat = json_feature.getJSONObject("geometry").getJSONArray("coordinates").getString(1);
+                    String lon = json_feature.getJSONObject("geometry").getJSONArray("coordinates").getString(1);
+                    String lat = json_feature.getJSONObject("geometry").getJSONArray("coordinates").getString(0);
 
                     //add to point
-                    mkro.title(name);
-                    mkro.position(new LatLng(Double.parseDouble(lon), Double.parseDouble(lat)));
-                    SelectPois.PoiArray.add(name);
+                    mkro.position(new LatLng(Double.parseDouble(lon), Double.parseDouble(lat))).title(name).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE));
+
+                    //add to map too
+                    MapsActivity.mMap.addMarker(mkro);
+
+
+                    //add to the list of pois
+                    MapsActivity.OptionList.add(mkro);
 
 
                 }
@@ -85,15 +91,14 @@ import java.util.List;
             }
 
             if (result!=null && result.length() >0) {
-                Toast.makeText(SelectPois.thisWindow, "Download completed. " + poicount + " POIs downloaded.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MapsActivity.thisWindow, "Download completed. " + poicount + " POIs downloaded.", Toast.LENGTH_SHORT).show();
 
-            }
+                MapsActivity.zoomToScale();
+                      }
             else{
-                SelectPois.PoiArray.clear();
-                SelectPois.PoiArray.add("<No data found>");
+                Toast.makeText(MapsActivity.thisWindow, "Download failed.", Toast.LENGTH_SHORT).show();
             }
 
-            //SelectPois.adpt.notifyDataSetChanged();
 
         }
 
@@ -118,11 +123,11 @@ import java.util.List;
                     inputStream.close();
                 } else {
                     Log.d("[ERROR]", "Failed to download file");
-                    Toast.makeText(SelectPois.thisWindow, "Failed to download file", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MapsActivity.thisWindow, "Failed to download file", Toast.LENGTH_SHORT).show();
                 }
             } catch (Exception e) {
                 Log.d("[readJSONFeedException]", e.getLocalizedMessage());
-                Toast.makeText(SelectPois.thisWindow, "Failed to download file", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MapsActivity.thisWindow, "Failed to download file", Toast.LENGTH_SHORT).show();
             }
             return myString.toString();
         }

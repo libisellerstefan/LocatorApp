@@ -34,10 +34,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SelectPois"
-            android:label="@string/title_activity_select_pois" >
-        </activity>
     </application>
 
 </manifest>
